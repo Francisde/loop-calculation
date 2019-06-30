@@ -4,18 +4,19 @@ import java.util.List;
 
 import structure.Assignment;
 import structure.Loop;
+import structure.Program;
 import structure.Statement;
 
 import javax.swing.plaf.nimbus.State;
 
 public class Emulator {
 
-    private List<Statement> statements;
+    private Program program;
     private int maxVar;
     private int[] vars;
 
-    public Emulator(List<Statement> statements, int maxVar) {
-        this.statements = statements;
+    public Emulator(Program program, int maxVar) {
+        this.program = program;
         this.maxVar = maxVar;
         this.vars = new int[maxVar];
         for (int i = 0; i < maxVar; i++) {
@@ -25,7 +26,7 @@ public class Emulator {
 
 
     public int run() {
-        for (Statement statement : statements) {
+        for (Statement statement : program.getStatementList()) {
             runStatement(statement);
         }
 
@@ -61,20 +62,6 @@ public class Emulator {
                 runStatement(statement);
             }
         }
-    }
-
-    /**
-     * toString method for the Emulator object
-     *
-     * @return a string representation for the Emulator object
-     */
-    @Override
-    public String toString() {
-        String result = "";
-        for (Statement statement : this.statements) {
-            result += statement + "\n";
-        }
-        return result;
     }
 
 }

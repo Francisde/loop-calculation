@@ -1,6 +1,7 @@
 import emulator.Emulator;
 import structure.Assignment;
 import structure.Loop;
+import structure.Program;
 import structure.Statement;
 
 import java.util.ArrayList;
@@ -24,8 +25,9 @@ public class Main {
         statements.add(as0);
         statements.add(as1);
         statements.add(l1);
-        Emulator e = new Emulator(statements, 2);
-        System.out.println(e);
+        Program program = new Program(statements);
+        Emulator e = new Emulator(program, 2);
+        System.out.println(program);
         System.out.println("Result: " + e.run());
 
     }

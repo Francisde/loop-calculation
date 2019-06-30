@@ -23,4 +23,18 @@ public class Program {
     public List<Statement> getStatementList() {
         return statementList;
     }
+
+    /**
+     * toString method for the Program object
+     *
+     * @return a string representation for the Emulator object
+     */
+    @Override
+    public String toString() {
+        String result = "";
+        for (Statement statement : this.statementList) {
+            result += statement + "\n";
+        }
+        return result;
+    }
 }
