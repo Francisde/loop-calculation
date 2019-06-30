@@ -46,4 +46,10 @@ public class Assignment extends Statement {
     public int getC() {
         return c;
     }
+
+    @Override
+    public String toString() {
+        return "x" + this.i + " = x" + this.j + " + " + this.c;
+    }
+
 }

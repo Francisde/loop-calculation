@@ -1,5 +1,6 @@
 package structure;
 
+import javax.swing.plaf.nimbus.State;
 import java.util.List;
 
 /**
@@ -41,5 +42,18 @@ public class Loop extends Statement {
      */
     public List<Statement> getStatements() {
         return statements;
+    }
+
+    @Override
+    public String toString() {
+        String result = "";
+        result += "LOOP (X" + this.i + ") {\n";
+        for (Statement statement : this.statements) {
+            result += "\t";
+            result += statement;
+            result += "\n";
+        }
+        result += "}";
+        return result;
     }
 }

@@ -1,5 +1,6 @@
 import emulator.Emulator;
 import structure.Assignment;
+import structure.Loop;
 import structure.Statement;
 
 import java.util.ArrayList;
@@ -9,13 +10,23 @@ public class Main {
     public static void main(String[] args) {
 
         // first test
-        Assignment as1 = new Assignment(2, 1, 2);
-        Assignment as2 = new Assignment(1, 2, 3);
+        Assignment as0 = new Assignment(1, 1, 2);
+        Assignment as1 = new Assignment(2, 1, 0);
+        Assignment as2 = new Assignment(1, 2, 5);
+        List<Statement> innerStatements = new ArrayList<>();
+
+        innerStatements.add(as2);
+        Loop l2 = new Loop(1, innerStatements);
+        List<Statement> innerStatements2 = new ArrayList<>();
+        innerStatements2.add(l2);
+        Loop l1 = new Loop(1, innerStatements2);
         List<Statement> statements = new ArrayList();
+        statements.add(as0);
         statements.add(as1);
-        statements.add(as2);
+        statements.add(l1);
         Emulator e = new Emulator(statements, 2);
-        System.out.println(e.run());
+        System.out.println(e);
+        System.out.println("Result: " + e.run());
 
     }
 
