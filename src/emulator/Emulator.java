@@ -31,9 +31,13 @@ public class Emulator {
         return vars[0];
     }
 
+    /**
+     * the method valuate a single assignment statement and change the global program variables
+     *
+     * @param assignemnt as an Assignment object
+     */
     private void runAssignment(Assignment assignemnt) {
         this.vars[assignemnt.getI() - 1] = vars[assignemnt.getJ() - 1] + assignemnt.getC();
     }
-
-
+    
 }

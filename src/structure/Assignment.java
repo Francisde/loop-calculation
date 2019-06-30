@@ -10,20 +10,39 @@ public class Assignment extends Statement {
     private int c;
 
 
+    /**
+     * the public constructor for the Assignment object
+     *
+     * @param i the variable index for the left side of the equation
+     * @param j the variable index for the right side of the equation
+     * @param c the integer after the + of the right side of the equation
+     */
     public Assignment(int i, int j, int c) {
         this.i = i;
         this.j = j;
         this.c = c;
     }
 
+    /**
+     * the public getter for left index i
+     * @return index i as an integer
+     */
     public int getI() {
         return i;
     }
 
+    /**
+     * the public getter for the right index j
+     * @return index j as an integer
+     */
     public int getJ() {
         return j;
     }
 
+    /**
+     * the public getter for the right side integer value c
+     * @return c as an integer
+     */
     public int getC() {
         return c;
     }
