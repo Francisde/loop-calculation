@@ -50,7 +50,7 @@ public class Loop extends Statement {
         result += "LOOP (X" + this.i + ") {\n";
         for (Statement statement : this.statements) {
             result += "\t";
-            result += statement;
+            result += statement.toString().replace("\n", "\n\t");
             result += "\n";
         }
         result += "}";
