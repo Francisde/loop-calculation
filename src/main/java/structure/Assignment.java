@@ -63,4 +63,18 @@ public class Assignment extends Statement {
         return "x" + this.i + " = x" + this.j + " + " + this.c;
     }
 
+    @Override
+    public boolean equals(Object other) {
+        if (other.getClass() != Assignment.class) {
+            return false;
+        } else {
+            other = (Assignment) other;
+            if (((Assignment) other).getC() == this.c && ((Assignment) other).getI() == this.i && ((Assignment) other).getJ() == this.j) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
 }
