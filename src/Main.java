@@ -1,3 +1,4 @@
+import IO.ParseLoopFile;
 import emulator.Emulator;
 import structure.Assignment;
 import structure.Loop;
@@ -29,6 +30,13 @@ public class Main {
         Emulator e = new Emulator(program, 2);
         System.out.println(program);
         System.out.println("Result: " + e.run());
+
+        Program testprogram = ParseLoopFile.parseFile("samples/sample1.loop");
+        e = new Emulator(testprogram, testprogram.getMaxvar());
+        System.out.println("Maxvar: " + testprogram.getMaxvar());
+        System.out.println("Print: " + testprogram);
+        System.out.println("Result: " + e.run());
+
 
     }
 

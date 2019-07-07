@@ -24,6 +24,18 @@ public class Program {
         return statementList;
     }
 
+    public int getMaxvar() {
+        int maxVar = 1;
+        for (Statement statement : statementList) {
+            int localMaxVar = statement.getMaxvar();
+            if (localMaxVar > maxVar) {
+                maxVar = localMaxVar;
+            }
+        }
+
+        return maxVar;
+    }
+
     /**
      * toString method for the Program object
      *

@@ -47,6 +47,14 @@ public class Assignment extends Statement {
         return c;
     }
 
+    public int getMaxvar() {
+        if (i > j) {
+            return i;
+        } else {
+            return j;
+        }
+    }
+
     @Override
     public String toString() {
         return "x" + this.i + " = x" + this.j + " + " + this.c;

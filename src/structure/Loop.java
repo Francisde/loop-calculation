@@ -1,6 +1,5 @@
 package structure;
 
-import javax.swing.plaf.nimbus.State;
 import java.util.List;
 
 /**
@@ -42,6 +41,10 @@ public class Loop extends Statement {
      */
     public List<Statement> getStatements() {
         return statements;
+    }
+
+    public int getMaxvar() {
+        return -1;
     }
 
     @Override
