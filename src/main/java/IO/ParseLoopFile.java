@@ -14,7 +14,8 @@ public class ParseLoopFile {
 
     /**
      * this method reads a .loop file from the given path and parse it to an List of Strings
-     * each String represents a single line in the loop program. Inline comments will be removed after this step
+     * each String represents a single line in the loop program. Inline comments and empty lines will
+     * be removed after this step.
      *
      * @param filePath the filepath as a String
      * @return the program as a List of Strings
