@@ -8,6 +8,9 @@ import java.util.List;
  * P;
  * }
  * where xi is the count variable and P is the statement which is calculatet xi times.
+ *
+ *  @author francis
+ *  @since 0.1
  */
 public class Loop extends Statement {
 

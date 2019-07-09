@@ -2,6 +2,10 @@ package parser;
 
 import structure.Assignment;
 
+/**
+ * @author francis
+ * @since 0.1
+ */
 public class ParseAssignment {
 
     public static Assignment parseAssignment(String input) {

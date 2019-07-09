@@ -9,6 +9,10 @@ import structure.Statement;
 
 import javax.swing.plaf.nimbus.State;
 
+/**
+ * @author francis
+ * @since 0.1
+ */
 public class Emulator {
 
     private Program program;

@@ -1,5 +1,9 @@
 package structure;
 
+/**
+ * @author francis
+ * @since 0.1
+ */
 public class Assignment extends Statement {
     /*
      * an assignment has the form xi = xj + c. where i and j are elements from Var(P) and i==j is possible. c is a integer.

@@ -3,6 +3,11 @@ package structure;
 
 import java.util.List;
 
+
+/**
+ * @author francis
+ * @since 0.1
+ */
 public class Program {
 
     private List<Statement> statementList;
