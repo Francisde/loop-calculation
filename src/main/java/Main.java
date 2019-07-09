@@ -31,12 +31,13 @@ public class Main {
         System.out.println(program);
         System.out.println("Result: " + e.run());
 
-        Program testprogram = ParseLoopFile.parseFile("samples/sample1.loop");
-        e = new Emulator(testprogram, testprogram.getMaxvar());
+
+        ParseLoopFile.parseFile("samples/sample1.loop");
+        /*e = new Emulator(testprogram, testprogram.getMaxvar());
         System.out.println("Maxvar: " + testprogram.getMaxvar());
         System.out.println("Print: " + testprogram);
         System.out.println("Result: " + e.run());
-
+*/
 
     }
 

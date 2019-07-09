@@ -1,24 +1,27 @@
 package IO;
 
-import parser.ParseAssignment;
-import structure.Program;
-import structure.Statement;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This class implements methods which can parse a .loop file in an Program object
+ * This class implements methods which can parse a .loop file.
+ *
+ * @author francis
+ * @since 0.1
  */
 public class ParseLoopFile {
 
-    public static Program parseFile(String filePath) {
-        Program result = null;
-        List<Statement> statementList = new ArrayList();
+    /**
+     * this method reads a .loop file from the given path and parse it to an List of Strings
+     * each String represents a single line in the loop program. Inline comments will be removed after this step
+     *
+     * @param filePath the filepath as a String
+     * @return the program as a List of Strings
+     * @since 0.1
+     */
+    public static List<String> parseFile(String filePath) {
+        List<String> result = new ArrayList<>();
         File file = new File(filePath);
         BufferedReader br = null;
         try {
@@ -33,36 +36,34 @@ public class ParseLoopFile {
             while ((inputLine = br.readLine()) != null) {
                 inputLine = inputLine.strip();
                 if (inputLine.startsWith("//")) {
-                    continue; // this line is a comment line
-                } else if (inputLine.startsWith("x") || inputLine.startsWith("X")) {
-                    // parse an assignment
-                    Statement statement = ParseAssignment.parseAssignment(removeInlineComments(inputLine));
-                    statementList.add(statement);
-                } else if (inputLine.startsWith("LOOP")) {
-                    // parse loop statement
+                    continue; // this line is a comment line and will be ignored
+                } else if (inputLine.equals("")) {
+                    continue; // it's an empty line
                 } else {
-                    // in this case the parser read unexpected code
-                    // throw an parser exception
+                    System.out.println(inputLine);
+                    result.add(removeInlineComments(inputLine));
                 }
             }
-        } catch (Exception e) {
+        } catch (IOException e) {
             System.err.println(e);
         }
-        result = new Program(statementList);
         return result;
     }
 
     /**
      * @param input
      * @return
+     * @since 0.1
      */
     public static String removeInlineComments(String input) {
         if (input == null) {
             throw new NullPointerException();
         }
-        String result;
+        String result = input;
         int commentIndex = input.indexOf("//");
-        result = input.substring(0, commentIndex);
+        if (commentIndex != -1) {
+            result = input.substring(0, commentIndex);
+        }
         return result;
     }
 }
