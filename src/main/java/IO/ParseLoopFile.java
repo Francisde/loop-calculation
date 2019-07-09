@@ -35,22 +35,34 @@ public class ParseLoopFile {
                 if (inputLine.startsWith("//")) {
                     continue; // this line is a comment line
                 } else if (inputLine.startsWith("x") || inputLine.startsWith("X")) {
-                    // parse assignemnt
-                    // this will be easy
-                    Statement statement = ParseAssignment.parseAssignment(inputLine);
+                    // parse an assignment
+                    Statement statement = ParseAssignment.parseAssignment(removeInlineComments(inputLine));
                     statementList.add(statement);
-                } else if (inputLine.startsWith("L")) {
+                } else if (inputLine.startsWith("LOOP")) {
                     // parse loop statement
                 } else {
                     // in this case the parser read unexpected code
                     // throw an parser exception
                 }
-
             }
         } catch (Exception e) {
             System.err.println(e);
         }
         result = new Program(statementList);
+        return result;
+    }
+
+    /**
+     * @param input
+     * @return
+     */
+    public static String removeInlineComments(String input) {
+        if (input == null) {
+            throw new NullPointerException();
+        }
+        String result;
+        int commentIndex = input.indexOf("//");
+        result = input.substring(0, commentIndex);
         return result;
     }
 }
